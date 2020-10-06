@@ -146,7 +146,7 @@ class MeetingEnded extends PureComponent {
       comment: MeetingEnded.getComment(),
       userRole: this.localUserRole,
     };
-    const url = '/html5client_freddy/feedback';
+    const url = '/html5client_soniya/feedback';
     const options = {
       method: 'POST',
       body: JSON.stringify(message),
