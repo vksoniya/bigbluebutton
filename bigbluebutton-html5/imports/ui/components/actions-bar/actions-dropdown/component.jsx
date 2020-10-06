@@ -129,6 +129,8 @@ class ActionsDropdown extends PureComponent {
       presentationDesc,
       takePresenter,
       takePresenterDesc,
+      summBtnLabel,
+      summBtnDesc,
     } = intlMessages;
 
     const {
