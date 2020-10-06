@@ -85,6 +85,10 @@
 .icon-bbb-polling:before {
   content: "\e927";
 }
+/* Soniya: icon for summarize */
+.icon-bbb-summarize:before {
+  content: "\e991";
+}
 .icon-bbb-desktop:before {
   content: "\e928";
 }

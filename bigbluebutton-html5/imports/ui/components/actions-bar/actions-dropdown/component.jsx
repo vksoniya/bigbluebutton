@@ -75,6 +75,16 @@ const intlMessages = defineMessages({
     id: 'app.actionsBar.actionsDropdown.stopShareExternalVideo',
     description: 'Stop sharing external video button',
   },
+    // Soniya: label for summarize button
+  summBtnLabel: {
+    id: 'app.actionsBar.actionsDropdown.summBtnLabel',
+    description: 'Summarize meeting button label',
+  },
+  // Soniya: Description for summarize button
+  summBtnDesc: {
+    id: 'app.actionsBar.actionsDropdown.summBtnDesc',
+    description: 'Summarize meeting button description',
+  },
 });
 
 const handlePresentationClick = () => Session.set('showUploadPresentationView', true);
@@ -86,6 +96,8 @@ class ActionsDropdown extends PureComponent {
     this.presentationItemId = _.uniqueId('action-item-');
     this.pollId = _.uniqueId('action-item-');
     this.takePresenterId = _.uniqueId('action-item-');
+    // Soniya: Id for summarize button.
+    this.summarizeId = _.uniqueId('action-item-');
 
     this.handleExternalVideoClick = this.handleExternalVideoClick.bind(this);
     this.makePresentationItems = this.makePresentationItems.bind(this);
@@ -174,6 +186,21 @@ class ActionsDropdown extends PureComponent {
             description="External Video"
             key="external-video"
             onClick={isSharingVideo ? stopExternalVideoShare : this.handleExternalVideoClick}
+          />
+        )
+        : null),
+      // Soniya: Summarize dropdown button
+      (amIPresenter
+        ? (
+          <DropdownListItem
+            icon="settings"
+            data-test="settings"
+            label={formatMessage(summBtnLabel)}
+            description={formatMessage(summBtnDesc)}
+            key={this.summarizeId}
+            onClick={() => {
+              alert('Hello world, I am summarizing')
+            }}
           />
         )
         : null),
