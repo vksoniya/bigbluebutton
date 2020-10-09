@@ -27,6 +27,8 @@ const intlMessages = defineMessages({
   },
 });
 
+const SUMMARIZE_SERVICE_URL = 'http://localhost:7020'
+
 const propTypes = {
   processToggleMuteFromOutside: PropTypes.func.isRequired,
   handleToggleMuteMicrophone: PropTypes.func.isRequired,
@@ -78,10 +80,12 @@ class AudioControls extends PureComponent {
       }
     }
     // Soniya: Summarize Button onClick
+  
     function clickMe(){
-      alert('you clicked me!');
+      alert('Open Meeting Summary');
       const url = 'https://soniyavkumar.wordpress.com/';
-      window.open(url, "_blank")
+      window.open(SUMMARIZE_SERVICE_URL, "_blank")
+      //fetchSummarize()
     }
 
     const label = muted ? intl.formatMessage(intlMessages.unmuteAudio)
@@ -124,7 +128,7 @@ class AudioControls extends PureComponent {
           circle
           accessKey={inAudio ? shortcuts.leaveaudio : shortcuts.joinaudio}
         />
-      /* Soniya: Summarize Button  */
+     
       <div>
         <button onClick={clickMe}>
           Summarize
