@@ -81,11 +81,10 @@ class AudioControls extends PureComponent {
       }
     }
     // Soniya: Summarize Button onClick
-  
     function clickMe(){
       const [currentTime, setCurrentTime] = useState(0);
       useEffect(() => {
-        fetch('/time').then(res => res.json()).then(data => {
+        fetch('SUMMARIZE_SERVICE_URL/time').then(res => res.json()).then(data => {
           setCurrentTime(data.time);
         });
       },

@@ -126,6 +126,5 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  },
-  "proxy": "http://localhost:7020"
+  }
 }
