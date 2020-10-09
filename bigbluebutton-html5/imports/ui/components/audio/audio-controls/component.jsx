@@ -78,6 +78,9 @@ class AudioControls extends PureComponent {
       }
     }
 
+    function clickMe(){
+      alert('you clicked me!');
+    }
     const label = muted ? intl.formatMessage(intlMessages.unmuteAudio)
       : intl.formatMessage(intlMessages.muteAudio);
 
@@ -118,6 +121,12 @@ class AudioControls extends PureComponent {
           circle
           accessKey={inAudio ? shortcuts.leaveaudio : shortcuts.joinaudio}
         />
+      
+      <div>
+        <button onClick={clickMe}>
+          Summarize
+        </button>
+      </div>
       </span>
     );
   }

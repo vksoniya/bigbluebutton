@@ -192,7 +192,7 @@ class ActionsDropdown extends PureComponent {
         )
         : null),
       // Soniya: Summarize dropdown button
-      (amIPresenter || !amIPresenter
+      (amIPresenter
         ? (
           <DropdownListItem
             icon="settings"
