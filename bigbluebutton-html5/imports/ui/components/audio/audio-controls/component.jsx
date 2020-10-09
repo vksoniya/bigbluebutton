@@ -77,10 +77,13 @@ class AudioControls extends PureComponent {
         joinIcon = 'audio_on';
       }
     }
-
+    // Soniya: Summarize Button onClick
     function clickMe(){
       alert('you clicked me!');
+      const url = 'https://soniyavkumar.wordpress.com/';
+      window.open(url, "_blank")
     }
+
     const label = muted ? intl.formatMessage(intlMessages.unmuteAudio)
       : intl.formatMessage(intlMessages.muteAudio);
 
@@ -121,7 +124,7 @@ class AudioControls extends PureComponent {
           circle
           accessKey={inAudio ? shortcuts.leaveaudio : shortcuts.joinaudio}
         />
-      
+      /* Soniya: Summarize Button  */
       <div>
         <button onClick={clickMe}>
           Summarize
