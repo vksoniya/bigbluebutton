@@ -12,7 +12,8 @@
     "start:dev": "ROOT_URL=http://127.0.0.1/html5client NODE_ENV=development meteor",
     "start:dev-fast-mongo": "env ROOT_URL=http://127.0.0.1/html5client MONGO_OPLOG_URL=mongodb://127.0.1.1/local MONGO_URL=mongodb://127.0.1.1/meteor PORT=3000 ROOT_URL=http://127.0.0.1/html5client NODE_ENV=development meteor",
     "test": "wdio ./tests/webdriverio/wdio.conf.js",
-    "lint": "eslint . --ext .jsx,.js"
+    "lint": "eslint . --ext .jsx,.js",
+    "start-api" : "cd ~/dev/flaskSummarizer && python3 app.py"
   },
   "meteor": {
     "mainModule": {
@@ -125,5 +126,6 @@
     "hooks": {
       "pre-commit": "lint-staged"
     }
-  }
+  },
+  "proxy": "http://localhost:7020"
 }

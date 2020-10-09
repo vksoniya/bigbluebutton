@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { PureComponent, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import { defineMessages, injectIntl } from 'react-intl';
@@ -28,6 +28,7 @@ const intlMessages = defineMessages({
 });
 
 const SUMMARIZE_SERVICE_URL = 'http://localhost:7020'
+const SUMMARIZE_FLASK_URL = 'https://ltbbb1.informatik.uni-hamburg.de/html5client_soniya/summarize'
 
 const propTypes = {
   processToggleMuteFromOutside: PropTypes.func.isRequired,
@@ -82,9 +83,16 @@ class AudioControls extends PureComponent {
     // Soniya: Summarize Button onClick
   
     function clickMe(){
-      alert('Open Meeting Summary');
-      const url = 'https://soniyavkumar.wordpress.com/';
-      window.open(SUMMARIZE_SERVICE_URL, "_blank")
+      const [currentTime, setCurrentTime] = useState(0);
+      useEffect(() => {
+        fetch('/time').then(res => res.json()).then(data => {
+          setCurrentTime(data.time);
+        });
+      },
+      []);
+      //alert('Open Meeting Summary');
+      //const url = 'https://soniyavkumar.wordpress.com/';
+      //window.open(SUMMARIZE_FLASK_URL, "_blank")
       //fetchSummarize()
     }
 
@@ -133,6 +141,7 @@ class AudioControls extends PureComponent {
         <button onClick={clickMe}>
           Summarize
         </button>
+        <p>The current from backend is {currentTime}</p>
       </div>
       </span>
     );
