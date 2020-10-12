@@ -27,9 +27,6 @@ const intlMessages = defineMessages({
   },
 });
 
-const SUMMARIZE_SERVICE_URL = 'http://localhost:7020'
-const SUMMARIZE_FLASK_URL = 'https://ltbbb1.informatik.uni-hamburg.de/html5client_soniya/summarize'
-
 const propTypes = {
   processToggleMuteFromOutside: PropTypes.func.isRequired,
   handleToggleMuteMicrophone: PropTypes.func.isRequired,
@@ -82,17 +79,9 @@ class AudioControls extends PureComponent {
     }
     // Soniya: Summarize Button onClick
     function clickMe(){
-      /*const [currentTime, setCurrentTime] = useState(0);
-      useEffect(() => {
-        fetch('SUMMARIZE_SERVICE_URL/time').then(res => res.json()).then(data => {
-          setCurrentTime(data.time);
-        });
-      },
-      []);*/
       alert('Open Meeting Summary');
-      const url = 'https://soniyavkumar.wordpress.com/';
-      window.open(SUMMARIZE_FLASK_URL, "_blank")
-      //fetchSummarize()
+      const url = 'https://ltbbb1.informatik.uni-hamburg.de/html5client_soniya/summarize';
+      window.open(url, "_blank");
     }
 
     const label = muted ? intl.formatMessage(intlMessages.unmuteAudio)
@@ -140,7 +129,6 @@ class AudioControls extends PureComponent {
         <button onClick={clickMe}>
           Summarize
         </button>
-        <p>The current from backend is {currentTime}</p>
       </div>
       </span>
     );
