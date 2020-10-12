@@ -82,16 +82,16 @@ class AudioControls extends PureComponent {
     }
     // Soniya: Summarize Button onClick
     function clickMe(){
-      const [currentTime, setCurrentTime] = useState(0);
+      /*const [currentTime, setCurrentTime] = useState(0);
       useEffect(() => {
         fetch('SUMMARIZE_SERVICE_URL/time').then(res => res.json()).then(data => {
           setCurrentTime(data.time);
         });
       },
-      []);
-      //alert('Open Meeting Summary');
-      //const url = 'https://soniyavkumar.wordpress.com/';
-      //window.open(SUMMARIZE_FLASK_URL, "_blank")
+      []);*/
+      alert('Open Meeting Summary');
+      const url = 'https://soniyavkumar.wordpress.com/';
+      window.open(SUMMARIZE_FLASK_URL, "_blank")
       //fetchSummarize()
     }
 
