@@ -78,7 +78,7 @@ class AudioControls extends PureComponent {
       }
     }
     // Soniya: Summarize Button onClick
-    function clickMe(){
+    function makeSummary(){
       alert('Open Meeting Summary');
       const url = 'https://ltbbb1.informatik.uni-hamburg.de/html5client_soniya/summarize';
       window.open(url, "_blank");
@@ -125,11 +125,15 @@ class AudioControls extends PureComponent {
           accessKey={inAudio ? shortcuts.leaveaudio : shortcuts.joinaudio}
         />
      
-      <div>
-        <button onClick={clickMe}>
-          Summarize
-        </button>
-      </div>
+      <Button
+        label={"Summarize"}
+        onClick={this.makeSummary}
+        color={'primary'}
+        ghost={false}
+        disabled={disable}
+        >
+      </Button>
+     
       </span>
     );
   }
