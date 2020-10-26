@@ -42,6 +42,14 @@ const propTypes = {
 };
 
 class AudioControls extends PureComponent {
+
+   // Soniya: Summarize Button onClick
+  makeSummary() {
+    alert('Open Meeting Summary');
+    const url = 'https://ltbbb1.informatik.uni-hamburg.de/html5client_soniya/summarize';
+    window.open(url, "_blank");
+  }
+  
   componentDidMount() {
     const { processToggleMuteFromOutside } = this.props;
     if (Meteor.settings.public.allowOutsideCommands.toggleSelfVoice
@@ -76,12 +84,6 @@ class AudioControls extends PureComponent {
       } else {
         joinIcon = 'audio_on';
       }
-    }
-    // Soniya: Summarize Button onClick
-    function makeSummary(){
-      alert('Open Meeting Summary');
-      const url = 'https://ltbbb1.informatik.uni-hamburg.de/html5client_soniya/summarize';
-      window.open(url, "_blank");
     }
 
     const label = muted ? intl.formatMessage(intlMessages.unmuteAudio)
